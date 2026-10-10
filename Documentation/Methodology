@@ -1,58 +1,90 @@
-## Methodology & Analytical Process
+# Methodology & Analytical Process
 
-## Phase 1: Data Ingestion & Setup
-* **Data Sources:** Imported raw CSV/database tables into SQL Server.
-* **Environment:** Executed queries in SSMS.
+## Phase 1: Data Ingestion and Setup
+
+- **Data Source:** Hospital Management Dataset containing five core tables: `patients`, `doctors`, `appointments`, `billing`, and `treatments`.
+- **Initial Preparation:** Imported the supplied CSV files into Microsoft Excel, organizing the tables into separate worksheets.
+- **SQL Environment:** Imported the data into SQL Server for querying and analysis using SQL Server Management Studio (SSMS).
 
 ## Phase 2: Data Familiarization
 
-The tables and their columns were reviewed to understand the available information and the relationships needed for analysis.
+Reviewed the available tables and columns to understand the dataset's structure, identify relevant fields, and establish how the entities relate to one another.
 
 ## Phase 3: Data Structure Documentation
-A data dictionary was prepared to document the tables, key fields, and intended relationships.
 
-## Phase 4: Data Cleaning & Preprocessing
-* **Data Types:** Converted `amount` to numeric (`DECIMAL(10,2)`) and formatted timestamps.
-* **Filtering & Deduplication:** Removed duplicate records based on `bill_id` and filtered out test transactions.
+Prepared a data dictionary documenting the five tables, their available columns, primary keys, foreign keys, and relationships.
 
-## Phase 5: Data Modeling & Schema Design
-* **Relational Structuring:** Normalized entity relationships into 3rd Normal Form (3NF) across 5 core tables (`patients`, `doctors`, `appointments`, `billing`, and `treatments`).
-* **Integrity Constraints:** Established Primary Key (PK) and Foreign Key (FK) referential integrity across all  tables.
+A schema diagram was also prepared to provide a visual representation of the documented database structure.
 
-![Database Diagram](data-dictionary/Structured Schema.png)
+![Database Schema](data-dictionary/Structured%20Schema.png)
 
-## Phase 6: Exploratory Data Analysis (EDA) / Business Logic & Aggregations
-*SQL queries were developed to investigate patient utilization, appointments, treatments, and billing activity.
-* Depending on the business question, the analysis uses filtering, joins, grouping, aggregate functions, date calculations, and ranking techniques where appropriate to calculate key summary metrics.
+## Phase 4: Data Validation and Preprocessing
 
+Performed data inspection and validation to assess the reliability and suitability of the dataset for analysis.
 
-## Phase 7: Business Interpretation
+The validation process includes reviewing relevant data types, checking key fields, examining potential duplicate records, and verifying relationships between tables.
 
-Query results are interpreted in the context of hospital operations. Recommendations are developed only where supported by the available data.
+Any data cleaning or transformation is documented according to the steps actually performed and validated.
 
-## Phase 6: Visualization With Power BI
+## Phase 5: Data Modeling and Relationship Analysis
 
-Verified metrics and findings will be presented in Power BI to support clear communication and interactive exploration.
-I built a Dashboard and multiple report pages to visually explain the data.
+Examined the relationships among the five core tables:
+
+- `patients`
+- `doctors`
+- `appointments`
+- `billing`
+- `treatments`
+
+Primary and foreign key relationships were documented to support accurate joins and analysis. Relationship assumptions were checked against the actual dataset structure to reduce the risk of incorrect joins and duplicated counts.
+
+## Phase 6: Exploratory Data Analysis and SQL Business Analysis
+
+Developed SQL scripts to investigate business questions relating to patient utilization, appointment activity, treatment records, and billing performance.
+
+Depending on the analytical question, the queries use appropriate SQL techniques, including:
+
+- Filtering and sorting
+- Joins and relationship-based analysis
+- Grouping and aggregate functions
+- Date calculations
+- Common Table Expressions (CTEs)
+- Window functions and ranking, where appropriate
+- Data validation and analytical checks
+
+The scripts are organized into separate files to make the analysis easier to review, reproduce, and maintain.
+
+## Phase 7: Business Interpretation and Recommendations
+
+Interpreted query results in the context of hospital operations and management.
+
+Findings and recommendations are based on verified query outputs. Where the dataset does not contain enough information to support a conclusion, the limitation is documented rather than making unsupported assumptions.
+
+## Phase 8: Visualization and Reporting with Power BI
+
+Use Microsoft Power BI to present validated metrics and findings through a dashboard and supporting report pages.
+
+The visualizations are designed to communicate relevant patterns in patient utilization, appointment activity, treatments, and billing, where supported by the available data.
+
+Dashboard measures are checked against the SQL results to maintain consistency between the analytical queries and the final reports.
 
 ## Tools and Technologies
 
-Microsoft Excel: Initial dataset organization and inspection.
+- **Microsoft Excel:** Initial dataset organization and inspection.
+- **SQL Server Management Studio (SSMS):** SQL querying, joins, aggregations, analytical calculations, and data validation.
+- **Microsoft Power BI:** Dashboard development, data visualization, and reporting.
+- **GitHub:** Version control, SQL script management, project documentation, and portfolio presentation.
 
-SQL Server Management Studio (SSMS): SQL querying, aggregation, joins, analytical calculations, and data validation.
+## Expected Project Deliverables
 
-Microsoft Power BI: Planned visualization and reporting of verified analytical findings.
+1. A documented data dictionary and database relationship diagram.
+2. Organized SQL scripts addressing defined hospital management business questions.
+3. Data validation queries and documented observations.
+4. Evidence-based findings and practical recommendations.
+5. A Power BI dashboard supported by verified analytical metrics.
+6. A GitHub repository that enables reviewers to understand the methodology and reproduce the analysis where the required environment and data are available.
 
-GitHub: Version control, project documentation, and portfolio presentation.
-
-Project: Hospital Management Analytics
-Primary analytical tool: SQL Server
-Reporting tool: Microsoft Power BI
-Documentation status: To be updated as analysis and validation are completed.
-
-Expected Deliverables
-Documented dataset structure and relationships.
-SQL scripts addressing defined business questions.
-Data validation queries and observations.
-Evidence-based business findings and recommendations.
-A Power BI dashboard supported by verified metrics.
+**Project:** Hospital Management Analytics  
+**Primary Analytical Tool:** Microsoft SQL Server  
+**Reporting Tool:** Microsoft Power BI  
+**Documentation:** Updated as analysis, validation, and reporting progress.
