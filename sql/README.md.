@@ -1,5 +1,17 @@
 # SQL Analysis
 
-This directory contains the SQL scripts used to investigate hospital operations, appointment demand, patient utilization, and other business questions.
+This folder contains SQL scripts developed for the Hospital Management Data Analytics project.
 
-Each script will document its analytical objective and use the verified structure and relationships of the dataset.
+## Analysis Areas
+
+- Patient utilization and visit frequency
+- Appointment operations and status analysis
+- Doctor performance analysis
+- Treatment and revenue analysis, where supported by the available data
+- Data quality and operational insights
+
+## Approach
+
+Each analysis is designed to answer a specific business question using the actual tables and columns available in the dataset.
+
+The findings will be documented with their business relevance and limitations.
