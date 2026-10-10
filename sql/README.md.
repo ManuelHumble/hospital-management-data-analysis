@@ -1,0 +1,5 @@
+# SQL Analysis
+
+This directory contains the SQL scripts used to investigate hospital operations, appointment demand, patient utilization, and other business questions.
+
+Each script will document its analytical objective and use the verified structure and relationships of the dataset.
