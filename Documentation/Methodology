@@ -1,27 +1,27 @@
-## 🛠️ Methodology & Analytical Process
+## Methodology & Analytical Process
 
-### Phase 1: Data Ingestion & Setup
+## Phase 1: Data Ingestion & Setup
 * **Data Sources:** Imported raw CSV/database tables into SQL Server.
 * **Environment:** Executed queries in SSMS.
 
-### Phase 2: Data Familiarization
+## Phase 2: Data Familiarization
 
 The tables and their columns were reviewed to understand the available information and the relationships needed for analysis.
 
-### Phase 3: Data Structure Documentation
+## Phase 3: Data Structure Documentation
 A data dictionary was prepared to document the tables, key fields, and intended relationships.
 
-### Phase 4: Data Cleaning & Preprocessing
+## Phase 4: Data Cleaning & Preprocessing
 * **Data Types:** Converted `amount` to numeric (`DECIMAL(10,2)`) and formatted timestamps.
 * **Filtering & Deduplication:** Removed duplicate records based on `bill_id` and filtered out test transactions.
 
-##### Phase 5: Data Modeling & Schema Design
+## Phase 5: Data Modeling & Schema Design
 * **Relational Structuring:** Normalized entity relationships into 3rd Normal Form (3NF) across 5 core tables (`patients`, `doctors`, `appointments`, `billing`, and `treatments`).
 * **Integrity Constraints:** Established Primary Key (PK) and Foreign Key (FK) referential integrity across all  tables.
 
 ![Database Diagram](data-dictionary/Structured Schema.png)
 
-### Phase 6: Exploratory Data Analysis (EDA) / Business Logic & Aggregations
+## Phase 6: Exploratory Data Analysis (EDA) / Business Logic & Aggregations
 *SQL queries were developed to investigate patient utilization, appointments, treatments, and billing activity.
 * Depending on the business question, the analysis uses filtering, joins, grouping, aggregate functions, date calculations, and ranking techniques where appropriate to calculate key summary metrics.
 
@@ -30,7 +30,7 @@ A data dictionary was prepared to document the tables, key fields, and intended 
 
 Query results are interpreted in the context of hospital operations. Recommendations are developed only where supported by the available data.
 
-##Phase 6: Visualization With Power BI
+## Phase 6: Visualization With Power BI
 
 Verified metrics and findings will be presented in Power BI to support clear communication and interactive exploration.
 I built a Dashboard and multiple report pages to visually explain the data.
