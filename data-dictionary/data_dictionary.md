@@ -58,23 +58,22 @@ The database analysis uses the actual tables and columns available in the source
 
 ## 7. Billing table 
 
-1	bill_id	Unique identifier for each bill.
-2	patient_id	Identifier of the patient associated with the bill.
-3	treatment_id	Identifier of the treatment associated with the bill.
-4	bill_date	Date the bill was recorded.
-5	amount	Amount billed.
-6	payment_method	Method used to make payment.
-7	payment_status	Recorded status of the payment.
+1	bill_id	Unique  | identifier for each bill.
+2	patient_id	    | Identifier of the patient associated with the bill.
+3	treatment_id	  | Identifier of the treatment associated with the bill.
+4	bill_date	      | Date the bill was recorded.
+5	amount	        | Amount billed.
+6	payment_method	| Method used to make payment.
+7	payment_status	| Recorded status of the payment.
 
 ## 8. Table Relationships
 
-| Primary/Referenced Table | Key | Related Table | Relationship |
+|No Primary/Referenced Table | Key | Related Table | Relationship |
 |---|---|---|---|
-No.	Primary/referenced table	Foreign key table	Relationship
-1	patients.patient_id	appointments.patient_id	One-to-many
-2	doctors.doctor_id	appointments.doctor_id	One-to-many
-3	appointments.appointment_id	treatments.appointment_id	One-to-many
-4	patients.patient_id	billing.patient_id	One-to-many
-5	treatments.treatment_id	billing.treatment_id	One-to-many
+|patients.patient_id	| appointments.patient_id	| One-to-many|
+|doctors.doctor_id	| appointments.doctor_id	| One-to-many|
+|appointments.appointment_id	| treatments.appointment_id | One-to-many|
+|patients.patient_id	| billing.patient_id |	One-to-many
+|treatments.treatment_id	| billing.treatment_id	| One-to-many|
 
 
