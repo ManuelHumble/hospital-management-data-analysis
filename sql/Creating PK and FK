@@ -1,0 +1,115 @@
+-- 1. Clean up decimal strings in doctor_id columns
+UPDATE dbo.appointments
+SET doctor_id = CAST(CAST(doctor_id AS DECIMAL(18,2)) AS INT)
+WHERE doctor_id LIKE '%.%';
+
+UPDATE dbo.doctors
+SET doctor_id = CAST(CAST(doctor_id AS DECIMAL(18,2)) AS INT)
+WHERE doctor_id LIKE '%.%';
+
+-- 2. Dynamically drop foreign keys pointing to dbo.doctors
+DECLARE @sql NVARCHAR(MAX) = '';
+
+SELECT @sql += 'ALTER TABLE ' + QUOTENAME(OBJECT_SCHEMA_NAME(parent_object_id)) + '.' + QUOTENAME(OBJECT_NAME(parent_object_id)) + 
+              ' DROP CONSTRAINT ' + QUOTENAME(name) + ';' + CHAR(13)
+FROM sys.foreign_keys
+WHERE referenced_object_id = OBJECT_ID('dbo.doctors');
+
+EXEC sp_executesql @sql;
+
+-- 3. Drop Primary Key on doctors
+ALTER TABLE dbo.doctors DROP CONSTRAINT PK_doctors;
+
+-- 4. Alter column types to INT
+ALTER TABLE dbo.doctors ALTER COLUMN doctor_id INT NOT NULL;
+ALTER TABLE dbo.appointments ALTER COLUMN doctor_id INT NOT NULL;
+
+-- 5. Recreate Primary Key and Foreign Key constraints
+ALTER TABLE dbo.doctors ADD CONSTRAINT PK_doctors PRIMARY KEY (doctor_id);
+
+ALTER TABLE dbo.appointments ADD CONSTRAINT FK_appointments_doctors 
+    FOREIGN KEY (doctor_id) REFERENCES dbo.doctors(doctor_id);
+
+
+ --======================================================================================
+    SELECT
+    fk.name AS ForeignKeyName,
+    OBJECT_NAME(fk.parent_object_id) AS ChildTable,
+    COL_NAME(fkc.parent_object_id, fkc.parent_column_id) AS ChildColumn,
+    OBJECT_NAME(fk.referenced_object_id) AS ParentTable,
+    COL_NAME(fkc.referenced_object_id, fkc.referenced_column_id) AS ParentColumn
+FROM sys.foreign_keys AS fk
+INNER JOIN sys.foreign_key_columns AS fkc
+    ON fk.object_id = fkc.constraint_object_id
+WHERE OBJECT_NAME(fk.parent_object_id) = 'appointments';
+
+----=============================================-----
+
+-- Creating Primary Table
+USE [Health Project];
+GO
+
+ALTER TABLE dbo.patients
+ADD CONSTRAINT PK_patients
+PRIMARY KEY (patient_id);
+GO
+
+ALTER TABLE dbo.doctors
+ADD CONSTRAINT PK_doctors
+PRIMARY KEY (doctor_id);
+GO
+
+ALTER TABLE dbo.appointments
+ADD CONSTRAINT PK_appointments
+PRIMARY KEY (appointment_id);
+GO
+
+ALTER TABLE dbo.treatments
+ADD CONSTRAINT PK_treatments
+PRIMARY KEY (treatment_id);
+GO
+
+ALTER TABLE dbo.billing
+ADD CONSTRAINT PK_billing
+PRIMARY KEY (bill_id);
+GO
+
+---==================================
+---Creating FK keys
+USE [Health Project];
+GO
+
+-- Appointments → Patients
+ALTER TABLE dbo.appointments
+ADD CONSTRAINT FK_appointments_patients
+FOREIGN KEY (patient_id)
+REFERENCES dbo.patients(patient_id);
+GO
+
+-- Appointments → Doctors
+ALTER TABLE dbo.appointments
+ADD CONSTRAINT FK_appointments_doctors
+FOREIGN KEY (doctor_id)
+REFERENCES dbo.doctors(doctor_id);
+GO
+
+-- Treatments → Appointments
+ALTER TABLE dbo.treatments
+ADD CONSTRAINT FK_treatments_appointments
+FOREIGN KEY (appointment_id)
+REFERENCES dbo.appointments(appointment_id);
+GO
+
+-- Billing → Patients
+ALTER TABLE dbo.billing
+ADD CONSTRAINT FK_billing_patients
+FOREIGN KEY (patient_id)
+REFERENCES dbo.patients(patient_id);
+GO
+
+-- Billing → Treatments
+ALTER TABLE dbo.billing
+ADD CONSTRAINT FK_billing_treatments
+FOREIGN KEY (treatment_id)
+REFERENCES dbo.treatments(treatment_id);
+GO
