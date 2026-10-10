@@ -1,0 +1,58 @@
+## 🛠️ Methodology & Analytical Process
+
+### Phase 1: Data Ingestion & Setup
+* **Data Sources:** Imported raw CSV/database tables into SQL Server.
+* **Environment:** Executed queries in SSMS.
+
+### Phase 2: Data Familiarization
+
+The tables and their columns were reviewed to understand the available information and the relationships needed for analysis.
+
+### Phase 3: Data Structure Documentation
+A data dictionary was prepared to document the tables, key fields, and intended relationships.
+
+### Phase 4: Data Cleaning & Preprocessing
+* **Data Types:** Converted `amount` to numeric (`DECIMAL(10,2)`) and formatted timestamps.
+* **Filtering & Deduplication:** Removed duplicate records based on `bill_id` and filtered out test transactions.
+
+##### Phase 5: Data Modeling & Schema Design
+* **Relational Structuring:** Normalized entity relationships into 3rd Normal Form (3NF) across 5 core tables (`patients`, `doctors`, `appointments`, `billing`, and `treatments`).
+* **Integrity Constraints:** Established Primary Key (PK) and Foreign Key (FK) referential integrity across all  tables.
+
+![Database Diagram](data-dictionary/Structured Schema.png)
+
+### Phase 6: Exploratory Data Analysis (EDA) / Business Logic & Aggregations
+*SQL queries were developed to investigate patient utilization, appointments, treatments, and billing activity.
+* Depending on the business question, the analysis uses filtering, joins, grouping, aggregate functions, date calculations, and ranking techniques where appropriate to calculate key summary metrics.
+
+
+## Phase 7: Business Interpretation
+
+Query results are interpreted in the context of hospital operations. Recommendations are developed only where supported by the available data.
+
+##Phase 6: Visualization With Power BI
+
+Verified metrics and findings will be presented in Power BI to support clear communication and interactive exploration.
+I built a Dashboard and multiple report pages to visually explain the data.
+
+## Tools and Technologies
+
+Microsoft Excel: Initial dataset organization and inspection.
+
+SQL Server Management Studio (SSMS): SQL querying, aggregation, joins, analytical calculations, and data validation.
+
+Microsoft Power BI: Planned visualization and reporting of verified analytical findings.
+
+GitHub: Version control, project documentation, and portfolio presentation.
+
+Project: Hospital Management Analytics
+Primary analytical tool: SQL Server
+Reporting tool: Microsoft Power BI
+Documentation status: To be updated as analysis and validation are completed.
+
+Expected Deliverables
+Documented dataset structure and relationships.
+SQL scripts addressing defined business questions.
+Data validation queries and observations.
+Evidence-based business findings and recommendations.
+A Power BI dashboard supported by verified metrics.
