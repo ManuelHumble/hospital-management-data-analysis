@@ -8,6 +8,7 @@ Business Question:
 How is recorded appointment volume distributed
 among doctors?
 What is each doctor's Work Rate?
+How does each doctor's revenue rank against other doctors, and what % do they contribute to revenue?
 
 
 
@@ -99,4 +100,39 @@ SELECT
 FROM DoctorPerformance AS dp
 CROSS JOIN PerformanceAverage AS pa
 ORDER BY dp.total_revenue DESC;
+
+--How does each doctor's revenue rank against other doctors, and what % do they contribute to revenue?
+WITH DoctorRevenue AS (
+    SELECT 
+        d.doctor_id,
+        CONCAT(d.first_name, ' ', d.last_name) AS doctor_name,
+        d.specialization,
+        ISNULL(SUM(b.amount), 0) AS total_revenue
+    FROM dbo.doctors d
+    LEFT JOIN dbo.appointments a 
+        ON d.doctor_id = a.doctor_id
+    LEFT JOIN dbo.treatments t 
+        ON a.appointment_id = t.appointment_id
+    LEFT JOIN dbo.billing b 
+        ON t.treatment_id = b.treatment_id
+    GROUP BY 
+        d.doctor_id, 
+        d.first_name, 
+        d.last_name, 
+        d.specialization
+)
+SELECT 
+    doctor_id,
+    doctor_name,
+    specialization,
+    total_revenue,
+    DENSE_RANK() OVER (ORDER BY total_revenue DESC) AS revenue_rank,
+    -- Calculates percentage contribution to grand total revenue
+    ROUND(
+        (total_revenue * 100.0) / NULLIF(SUM(total_revenue) OVER (), 0), 
+        2
+    ) AS pct_of_total_revenue
+FROM DoctorRevenue
+ORDER BY 
+    revenue_rank ASC;
 
