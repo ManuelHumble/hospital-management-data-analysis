@@ -70,7 +70,11 @@ The database analysis uses the actual tables and columns available in the source
 
 | Primary/Referenced Table | Key | Related Table | Relationship |
 |---|---|---|---|
-| patients | patient_id | appointments | One patient may have multiple appointments. |
-| doctors | doctor_id | appointments | One doctor may have multiple appointments. |
+No.	Primary/referenced table	Foreign key table	Relationship
+1	patients.patient_id	appointments.patient_id	One-to-many
+2	doctors.doctor_id	appointments.doctor_id	One-to-many
+3	appointments.appointment_id	treatments.appointment_id	One-to-many
+4	patients.patient_id	billing.patient_id	One-to-many
+5	treatments.treatment_id	billing.treatment_id	One-to-many
 
 
