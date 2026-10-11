@@ -11,11 +11,12 @@
 Reviewed the available tables and columns to understand the dataset structure, identify relevant fields, and determine the relationships required for analysis.
 
 ## Phase 3: Data Structure Documentation
+![SQL Query](Creating_Relationship.png)
 
 Prepared a data dictionary documenting all five tables, their columns, primary keys (PKs), foreign keys (FKs), and relationships.
-![Non Structure](https://github.com/ManuelHumble/hospital-management-data-analysis/blob/main/data-dictionary/Non%20structure.png?raw=true)
+![Non Structured Data](data-dictionary/No_Relationship.png)
 
-A database schema diagram was also prepared to illustrate the documented relationships.
+A database schema diagram to illustrate the documented relationships.
 
 ![Database Schema](../data-dictionary/Structured%20Schema.png)
 
