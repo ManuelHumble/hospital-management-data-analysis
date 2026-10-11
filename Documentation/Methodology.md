@@ -14,7 +14,7 @@ Reviewed the available tables and columns to understand the dataset structure, i
 
 Prepared a data dictionary documenting all five tables, their columns, primary keys (PKs), foreign keys (FKs), and relationships.
 
-![Database Schema](../data-dictionary/Non%20Structured%20Schema.png) 
+![Non Structured Data](data-dictionary/Non%20structured%20Data.png)
 
 A database schema diagram was also prepared to illustrate the documented relationships.
 
