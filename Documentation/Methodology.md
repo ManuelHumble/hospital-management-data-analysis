@@ -14,13 +14,13 @@ Reviewed the available tables and columns to understand the dataset structure, i
 
 ### 3.1 Establishing Table Relationships
 
-![Creating Relationships](..Creating_Relationship.png)
+![Creating Relationships](../Creating_Relationship.png)
 
 The relationships between the five core tables were examined and documented by identifying primary keys (PKs), foreign keys (FKs), and the connections between related entities.
 
 ### 3.2 Documenting the Initial Structure
 
-![Tables Before Relationships](..data-dictionary/No_Relationship.png)
+![Tables Before Relationships](../data-dictionary/No_Relationship.png)
 
 The initial table structure was reviewed to understand how the dataset was organized before documenting the relationships between the tables.
 
@@ -37,10 +37,10 @@ A database schema diagram was prepared to provide a visual reference for the doc
 
 ## Phase 3: Data Structure Documentation
 
-![SQL Query](..Creating_Relationship.png)
+![SQL Query](../Creating_Relationship.png)
 
 Prepared a data dictionary documenting all five tables, their columns, primary keys (PKs), foreign keys (FKs), and relationships.
-![Non Structured Data](..data-dictionary/No_Relationship.png)
+![Non Structured Data](../data-dictionary/No_Relationship.png)
 
 A database schema diagram to illustrate the documented relationships.
 
