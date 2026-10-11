@@ -9,8 +9,34 @@
 ## Phase 2: Data Familiarization
 
 Reviewed the available tables and columns to understand the dataset structure, identify relevant fields, and determine the relationships required for analysis.
+----------------------------------------------------------------------------------
+## Phase 3: Data Structure Documentation
+
+### 3.1 Establishing Table Relationships
+
+![Creating Relationships](Creating_Relationship.png)
+
+The relationships between the five core tables were examined and documented by identifying primary keys (PKs), foreign keys (FKs), and the connections between related entities.
+
+### 3.2 Documenting the Initial Structure
+
+![Tables Before Relationships](data-dictionary/No_Relationship.png)
+
+The initial table structure was reviewed to understand how the dataset was organized before documenting the relationships between the tables.
+
+### 3.3 Data Dictionary and Relationship Mapping
+
+Prepared a data dictionary documenting all five tables, their columns, primary keys (PKs), foreign keys (FKs), and relationship types.
+
+A database schema diagram was prepared to provide a visual reference for the documented table relationships.
+
+
+
+
+
 
 ## Phase 3: Data Structure Documentation
+
 ![SQL Query](Creating_Relationship.png)
 
 Prepared a data dictionary documenting all five tables, their columns, primary keys (PKs), foreign keys (FKs), and relationships.
